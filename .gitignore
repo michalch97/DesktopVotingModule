@@ -1,0 +1,6 @@
+*.csproj.user
+packages
+obj
+bin
+.vs
+TestResults
