@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="API.cs" />
     <Compile Include="Candidate.cs" />
+    <Compile Include="CandidatesSingleton.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

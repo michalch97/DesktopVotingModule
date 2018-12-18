@@ -4,12 +4,39 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DesktopVotingModule"
+      xmlns:vm="clr-namespace:DesktopVotingModuleViewModel;assembly=DesktopVotingModuleViewModel"
       mc:Ignorable="d" 
       d:DesignHeight="416.8" d:DesignWidth="544"
       Title="VotingPage">
+    <Page.Resources>
+        <vm:VoteViewModel x:Key="voteView"/>
+    </Page.Resources>
+    <Grid DataContext="{StaticResource voteView}" >
+        <ListBox ItemsSource="{Binding CandidatesCollection}" HorizontalAlignment="Stretch" Height="329" Margin="10,10,10,0" VerticalAlignment="Top" Background="#FF707070" BorderBrush="#FF707070">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="0,2" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                        <Grid.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="0"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Grid.RenderTransform>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" Text="{Binding Path=Id}"  FontSize="17" Foreground="White"/>
+                        <TextBlock Grid.Column="1" Text="{Binding Path=Name}" FontSize="17" Foreground="White"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
-    <Grid>
-        <Label>Test Test Test Test Test Test Test Test Test</Label>
+        <Button Content="Głosuj" Command="{Binding VoteCandidateCommand}" CommandParameter="{Binding ElementName=Page}" Background="DarkGray" Foreground="#231F20" FontFamily="Sitka Banner" FontSize="20" FontWeight="Bold" Margin="162,364,162,10"/>
+
         <!--Widok strony z głosowaniem-->
     </Grid>
 </Page>
