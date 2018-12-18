@@ -20,13 +20,32 @@ namespace DesktopVotingModuleViewModel
         public ObservableCollection<Candidate> CandidatesCollection { get => candidatesCollection; set => candidatesCollection = value; }
 
 
-        //public ICommand VoteCandidateCommand
-        //{
-        //    get
-        //    {
-        //        return new VoteCandidate(this);
-        //    }
-        //}
-        
+        public ICommand VoteCandidateCommand
+        {
+            get
+            {
+                return new VoteCandidate(this);
+            }
+        }
+
+        public void Vote()
+        {
+            PageController.PageSource = "AfterVotePage.xaml";
+        }
+
+        public ICommand BackToStartPageCommand
+        {
+            get
+            {
+                return new BackToStartPage(this);
+            }
+        }
+
+        public void Back()
+        {
+            PageController.PageSource = "MenuPage.xaml";
+        }
+
+       
     }
 }

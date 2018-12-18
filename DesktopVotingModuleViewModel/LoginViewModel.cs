@@ -47,7 +47,7 @@ namespace DesktopVotingModuleViewModel
         {
             User user = new User(login,password);
             //bool authorizationStatus = await API.LoginAsync(user);
-            PageController.PageSource = "VotingPage.xaml";
+            PageController.PageSource = "MenuPage.xaml";
             PageController.User = user;
         }
         private string ConvertToUnsecureString(System.Security.SecureString securePassword)
