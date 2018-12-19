@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -79,6 +80,7 @@ namespace DesktopVotingModuleModel
             String responseString = await response.Content.ReadAsStringAsync();
             //String responseString = "[{\"name\": \"A\",\"id\": 0},{\"name\": \"B\",\"id\": 1}]";
             ObservableCollection<Candidate> values = JsonConvert.DeserializeObject<ObservableCollection<Candidate>>(responseString);
+            ballot.candidates = values.ToList();
             return values;
         }
 
@@ -88,7 +90,7 @@ namespace DesktopVotingModuleModel
             string content =
                 "{"
                 + "\"ballotId\": " + ballot.id + ","
-                + "\"candidateId\": " +  candidate.Id +
+                + "\"candidateId\": " + candidate.Id +
                 "}";
             HttpRequestMessage httpRequestMessage = new HttpRequestMessage
             {
