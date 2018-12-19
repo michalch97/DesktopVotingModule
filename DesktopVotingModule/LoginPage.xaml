@@ -7,7 +7,7 @@
       xmlns:local="clr-namespace:DesktopVotingModule"
       mc:Ignorable="d" 
       d:DesignHeight="416.8" d:DesignWidth="544"
-      Title="LoginPage"
+      Title="Login"
       x:Name="Page">
     <Page.Resources>
         <vm:LoginViewModel x:Key="loginView"/>

@@ -5,10 +5,10 @@ using System.Windows.Input;
 
 namespace DesktopVotingModuleViewModel
 {
-    public class VoteCandidate : ICommand
+    public class BackToStartPage : ICommand
     {
         private VoteViewModel viewModel;
-        public VoteCandidate(VoteViewModel viewModel)
+        public BackToStartPage(VoteViewModel viewModel)
         {
             this.viewModel = viewModel;
         }
@@ -19,7 +19,7 @@ namespace DesktopVotingModuleViewModel
 
         public void Execute(object parameter)
         {
-            viewModel.Vote();            
+            viewModel.Back();
         }
 
         public event EventHandler CanExecuteChanged;
