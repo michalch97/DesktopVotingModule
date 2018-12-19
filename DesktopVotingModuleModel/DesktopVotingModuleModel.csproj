@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API.cs" />
+    <Compile Include="Ballot.cs" />
     <Compile Include="Candidate.cs" />
     <Compile Include="CandidatesSingleton.cs" />
     <Compile Include="User.cs" />

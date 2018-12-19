@@ -13,20 +13,35 @@ namespace DesktopVotingModuleViewModel
 {
     public class VoteViewModel
     {
-        private Candidate SelectedCandidate;
-        private ObservableCollection<Candidate> candidatesCollection = CandidatesSingleton.candidatesCollection;
+        private User user;
+        private Ballot ballot;
+        private Candidate selectedCandidate;
+        private ObservableCollection<Candidate> candidatesCollection;
 
-        public Candidate SelectedCandidate1 { get => SelectedCandidate; set => SelectedCandidate = value; }
+        public Candidate SelectedCandidate { get => selectedCandidate; set => selectedCandidate = value; }
         public ObservableCollection<Candidate> CandidatesCollection { get => candidatesCollection; set => candidatesCollection = value; }
 
 
-        //public ICommand VoteCandidateCommand
-        //{
-        //    get
-        //    {
-        //        return new VoteCandidate(this);
-        //    }
-        //}
-        
+        public VoteViewModel()
+        {
+            user = PageController.User;
+            ballot = Task.Run(async () => {return await API.GetBallots(user); }).Result;
+            CandidatesSingleton.candidatesCollection = Task.Run(async () => { return await API.GetCandidateNamesForBallot(ballot, user); }).Result;
+            //ballot.candidates = candidatesCollection.ToList();
+            candidatesCollection = CandidatesSingleton.candidatesCollection;
+        }
+
+        public ICommand VoteCandidateCommand
+        {
+            get
+            {
+                return new VoteCandidate(this);
+            }
+        }
+
+        public async Task Vote()
+        {
+            await API.Vote(ballot, selectedCandidate, user);
+        }
     }
 }

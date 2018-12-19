@@ -46,7 +46,7 @@ namespace DesktopVotingModuleViewModel
         public async Task Authorize()
         {
             User user = new User(login,password);
-            //bool authorizationStatus = await API.LoginAsync(user);
+            bool authorizationStatus = await API.LoginAsync(user);
             PageController.PageSource = "VotingPage.xaml";
             PageController.User = user;
         }

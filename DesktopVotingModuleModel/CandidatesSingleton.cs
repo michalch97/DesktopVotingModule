@@ -2,23 +2,19 @@
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace DesktopVotingModuleModel
 {
     public class CandidatesSingleton
     {
-        public static ObservableCollection<Candidate> candidatesCollection = new ObservableCollection<Candidate>();
+        public static ObservableCollection<Candidate> candidatesCollection;
 
         public static CandidatesSingleton Instance { get; }
         static CandidatesSingleton()
         {
-            Candidate c1 = new Candidate("Pawel Ciupka", 1);
-            Candidate c2 = new Candidate("Michal Chmielewski", 2);
-            candidatesCollection.Add(c1);
-            candidatesCollection.Add(c2);
-
+            candidatesCollection = new ObservableCollection<Candidate>();
             Instance = new CandidatesSingleton();
-
         }
     }
 }

@@ -19,7 +19,7 @@ namespace DesktopVotingModuleViewModel
 
         public void Execute(object parameter)
         {
-            // Logic there
+            Task.Run(async () => { await viewModel.Vote(); });
         }
 
         public event EventHandler CanExecuteChanged;
