@@ -64,6 +64,9 @@
     <Compile Include="VoteResultPage.xaml.cs">
       <DependentUpon>VoteResultPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VoteSelectPage.xaml.cs">
+      <DependentUpon>VoteSelectPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VotingPage.xaml.cs">
       <DependentUpon>VotingPage.xaml</DependentUpon>
     </Compile>
@@ -95,6 +98,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="VoteResultPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VoteSelectPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -133,6 +140,10 @@
     <Resource Include="pl.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DesktopVotingModuleModel\DesktopVotingModuleModel.csproj">
+      <Project>{9D9EF1F6-696C-4328-835C-9261BF6CAD1E}</Project>
+      <Name>DesktopVotingModuleModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DesktopVotingModuleViewModel\DesktopVotingModuleViewModel.csproj">
       <Project>{80c6902d-0e08-45cc-9b84-8f436c753e99}</Project>
       <Name>DesktopVotingModuleViewModel</Name>

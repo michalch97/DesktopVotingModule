@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -8,12 +9,12 @@ namespace DesktopVotingModuleModel
 {
     public class CandidatesSingleton
     {
-        public static ObservableCollection<Candidate> candidatesCollection;
+        public static List<ObservableCollection<Candidate>> candidatesCollection;
 
         public static CandidatesSingleton Instance { get; }
         static CandidatesSingleton()
         {
-            candidatesCollection = new ObservableCollection<Candidate>();
+            candidatesCollection = new List<ObservableCollection<Candidate>>();
             Instance = new CandidatesSingleton();
         }
     }

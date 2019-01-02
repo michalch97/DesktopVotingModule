@@ -1,5 +1,4 @@
-﻿using DesktopVotingModuleViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,18 +16,13 @@ using System.Windows.Shapes;
 namespace DesktopVotingModule
 {
     /// <summary>
-    /// Interaction logic for VotePage.xaml
+    /// Logika interakcji dla klasy VoteSelectPage.xaml
     /// </summary>
-    public partial class VotePage : Page
+    public partial class VoteSelectPage : Page
     {
-        public VotePage()
+        public VoteSelectPage()
         {
             InitializeComponent();
-        }
-
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

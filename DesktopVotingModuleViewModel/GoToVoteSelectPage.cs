@@ -1,15 +1,14 @@
-﻿using DesktopVotingModuleModel;
-using System;
+﻿using System;
 using System.Runtime.Remoting.Messaging;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace DesktopVotingModuleViewModel
 {
-    public class SelectCandidate : ICommand
+    public class GoToVoteSelectPage : ICommand
     {
         private VoteCandidateViewModel viewModel;
-        public SelectCandidate(VoteCandidateViewModel viewModel, Candidate SelectedCandidate)
+        public GoToVoteSelectPage(VoteCandidateViewModel viewModel)
         {
             this.viewModel = viewModel;
         }
@@ -20,7 +19,7 @@ namespace DesktopVotingModuleViewModel
 
         public void Execute(object parameter)
         {
-            viewModel.Vote();
+            viewModel.Back();
         }
 
         public event EventHandler CanExecuteChanged;

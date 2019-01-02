@@ -1,15 +1,16 @@
 ﻿using DesktopVotingModuleModel;
 using System;
+using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace DesktopVotingModuleViewModel
 {
-    public class SelectCandidate : ICommand
+    public class GetVote : ICommand
     {
-        private VoteCandidateViewModel viewModel;
-        public SelectCandidate(VoteCandidateViewModel viewModel, Candidate SelectedCandidate)
+        private VoteViewModel viewModel;
+        public GetVote(VoteViewModel viewModel)
         {
             this.viewModel = viewModel;
         }
@@ -20,7 +21,13 @@ namespace DesktopVotingModuleViewModel
 
         public void Execute(object parameter)
         {
-            viewModel.Vote();
+            if (viewModel.SelectedVote != null)
+            {
+                Vote tmpVote = VotesSingleton.voteCollection.Where(x => x.Name == viewModel.SelectedVote.Name).FirstOrDefault();
+                CandidatesSingleton.candidatesCollection.Add(tmpVote.Candidates);
+            }
+
+            viewModel.GetVote();
         }
 
         public event EventHandler CanExecuteChanged;

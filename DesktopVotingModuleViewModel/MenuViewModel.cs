@@ -23,7 +23,7 @@ namespace DesktopVotingModuleViewModel
 
         public void VotePage()
         {
-            PageController.PageSource = "VotingPage.xaml";
+            PageController.PageSource = "VoteSelectPage.xaml";
         }
 
         public ICommand GoToVoteResultCommand

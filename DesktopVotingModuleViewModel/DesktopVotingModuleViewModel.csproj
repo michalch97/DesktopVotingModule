@@ -44,6 +44,7 @@
     <Compile Include="BackToStartPage.cs" />
     <Compile Include="GoToVotePage.cs" />
     <Compile Include="GoToVoteResultPage.cs" />
+    <Compile Include="GoToVoteSelectPage.cs" />
     <Compile Include="IPassword.cs" />
     <Compile Include="LoginUser.cs" />
     <Compile Include="LoginViewModel.cs" />
@@ -52,7 +53,9 @@
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelectCandidate.cs" />
+    <Compile Include="SelectVote.cs" />
     <Compile Include="VoteCandidate.cs" />
+    <Compile Include="VoteCandidateViewModel.cs" />
     <Compile Include="VoteViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

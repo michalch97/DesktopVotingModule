@@ -7,8 +7,8 @@ namespace DesktopVotingModuleViewModel
 {
     public class VoteCandidate : ICommand
     {
-        private VoteViewModel viewModel;
-        public VoteCandidate(VoteViewModel viewModel)
+        private VoteCandidateViewModel viewModel;
+        public VoteCandidate(VoteCandidateViewModel viewModel)
         {
             this.viewModel = viewModel;
         }
