@@ -25,6 +25,7 @@ namespace DesktopVotingModuleViewModel
             {
                 Vote tmpVote = VotesSingleton.voteCollection.Where(x => x.Name == viewModel.SelectedVote.Name).FirstOrDefault();
                 CandidatesSingleton.candidatesCollection.Add(tmpVote.Candidates);
+                VotesSingleton.VoteName = viewModel.SelectedVote.Name.ToUpper();
             }
 
             viewModel.GetVote();

@@ -10,6 +10,8 @@ namespace DesktopVotingModuleModel
     {
         public static ObservableCollection<Vote> voteCollection;
 
+        public static string VoteName;
+
         public static VotesSingleton Instance { get; }
         static VotesSingleton()
         {

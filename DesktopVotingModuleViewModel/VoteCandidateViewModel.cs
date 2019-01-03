@@ -30,7 +30,8 @@ namespace DesktopVotingModuleViewModel
         public VoteCandidateViewModel()
         {
             user = PageController.User;
-            if(CandidatesSingleton.candidatesCollection.Count > 0)
+            VoteName = VotesSingleton.VoteName;
+            if (CandidatesSingleton.candidatesCollection.Count > 0)
             {
                 CandidatesCollection = CandidatesSingleton.candidatesCollection.Last();
             }
