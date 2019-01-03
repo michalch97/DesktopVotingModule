@@ -10,10 +10,12 @@ namespace DesktopVotingModuleViewModel
     public class GetVote : ICommand
     {
         private VoteViewModel viewModel;
+
         public GetVote(VoteViewModel viewModel)
         {
             this.viewModel = viewModel;
         }
+
         public bool CanExecute(object parameter)
         {
             return true;
@@ -25,7 +27,7 @@ namespace DesktopVotingModuleViewModel
             {
                 Vote tmpVote = VotesSingleton.voteCollection.Where(x => x.Name == viewModel.SelectedVote.Name).FirstOrDefault();
                 CandidatesSingleton.candidatesCollection.Add(tmpVote.Candidates);
-                VotesSingleton.VoteName = viewModel.SelectedVote.Name.ToUpper();
+                VotesSingleton.VoteName = viewModel.SelectedVote.Name;
             }
 
             viewModel.GetVote();

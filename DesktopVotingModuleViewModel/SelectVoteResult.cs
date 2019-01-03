@@ -1,17 +1,20 @@
-﻿using System;
+﻿using DesktopVotingModuleModel;
+using System;
+using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace DesktopVotingModuleViewModel
 {
-    public class BackToStartPage : ICommand
+    public class SelectVoteResult : ICommand
     {
-        public BackToStartPage()
+        private VoteResultViewModel viewModelResult;
+        
+        public SelectVoteResult(VoteResultViewModel viewModelResult)
         {
-
+            this.viewModelResult = viewModelResult;
         }
-
         public bool CanExecute(object parameter)
         {
             return true;
@@ -19,7 +22,7 @@ namespace DesktopVotingModuleViewModel
 
         public void Execute(object parameter)
         {
-            PageController.PageSource = "MenuPage.xaml";
+            viewModelResult.GetVoteResult();
         }
 
         public event EventHandler CanExecuteChanged;

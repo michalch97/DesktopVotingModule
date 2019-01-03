@@ -7,11 +7,11 @@ namespace DesktopVotingModuleViewModel
 {
     public class GoToVoteResultPage : ICommand
     {
-        private MenuViewModel viewModel;
-        public GoToVoteResultPage(MenuViewModel viewModel)
+        public GoToVoteResultPage()
         {
-            this.viewModel = viewModel;
+
         }
+
         public bool CanExecute(object parameter)
         {
             return true;
@@ -19,7 +19,7 @@ namespace DesktopVotingModuleViewModel
 
         public void Execute(object parameter)
         {
-            viewModel.VoteResultPage();
+            PageController.PageSource = "VoteResultSelectPage.xaml";
         }
 
         public event EventHandler CanExecuteChanged;

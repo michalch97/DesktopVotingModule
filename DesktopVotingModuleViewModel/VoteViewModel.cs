@@ -38,13 +38,8 @@ namespace DesktopVotingModuleViewModel
         {
             get
             {
-                return new BackToStartPage(this);
+                return new BackToStartPage();
             }
-        }
-
-        public void Back()
-        {
-            PageController.PageSource = "MenuPage.xaml";
         }
 
         public ICommand GetVoteCommand

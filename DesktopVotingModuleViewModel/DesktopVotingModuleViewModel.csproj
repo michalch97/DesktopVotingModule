@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BackToStartPage.cs" />
+    <Compile Include="SelectVoteResult.cs" />
     <Compile Include="GoToVotePage.cs" />
     <Compile Include="GoToVoteResultPage.cs" />
     <Compile Include="GoToVoteSelectPage.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="SelectVote.cs" />
     <Compile Include="VoteCandidate.cs" />
     <Compile Include="VoteCandidateViewModel.cs" />
+    <Compile Include="VoteResultViewModel.cs" />
     <Compile Include="VoteViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

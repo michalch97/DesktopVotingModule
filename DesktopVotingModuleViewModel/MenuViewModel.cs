@@ -17,27 +17,18 @@ namespace DesktopVotingModuleViewModel
         {
             get
             {
-                return new GoToVotePage(this);
+                return new GoToVotePage();
             }
-        }
-
-        public void VotePage()
-        {
-            PageController.PageSource = "VoteSelectPage.xaml";
         }
 
         public ICommand GoToVoteResultCommand
         {
             get
             {
-                return new GoToVoteResultPage(this);
+                return new GoToVoteResultPage();
             }
         }
-
-        public void VoteResultPage()
-        {
-            PageController.PageSource = "VoteResultPage.xaml";
-        }
+        
 
     }
 }

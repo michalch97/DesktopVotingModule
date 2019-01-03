@@ -18,6 +18,7 @@ namespace DesktopVotingModuleViewModel
         private Candidate selectedCandidate;
         private ObservableCollection<Candidate> candidatesCollection;
         private string voteName { get; set; }
+        public Vote thisVote { get; set; }
 
 
         public Candidate SelectedCandidate { get => selectedCandidate; set => selectedCandidate = value; }
@@ -35,6 +36,8 @@ namespace DesktopVotingModuleViewModel
             {
                 CandidatesCollection = CandidatesSingleton.candidatesCollection.Last();
             }
+
+            thisVote = VotesSingleton.voteCollection.FirstOrDefault(x => x.Name == VoteName);
         }
 
         public ICommand VoteCandidateCommand
@@ -47,7 +50,10 @@ namespace DesktopVotingModuleViewModel
 
         public async Task Vote()
         {
-            await API.Vote(ballot, selectedCandidate, user);
+            //await API.Vote(ballot, selectedCandidate, user);
+            VotesSingleton.voteCollection.FirstOrDefault(x => x.Name == VoteName).clearVotedCandidate();
+            VotesSingleton.voteCollection.FirstOrDefault(x => x.Name == VoteName).setVotedCandidate(selectedCandidate);
+
             PageController.PageSource = "AfterVotePage.xaml";
         }
 
@@ -55,15 +61,9 @@ namespace DesktopVotingModuleViewModel
         {
             get
             {
-                return new GoToVoteSelectPage(this);
+                return new GoToVoteSelectPage();
             }
         }
-
-        public async Task Back()
-        {
-            PageController.PageSource = "VoteSelectPage.xaml";
-        }
-
     }
 }
 

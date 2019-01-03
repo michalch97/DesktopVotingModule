@@ -64,6 +64,9 @@
     <Compile Include="VoteResultPage.xaml.cs">
       <DependentUpon>VoteResultPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="VoteResultSelectPage.xaml.cs">
+      <DependentUpon>VoteResultSelectPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VoteSelectPage.xaml.cs">
       <DependentUpon>VoteSelectPage.xaml</DependentUpon>
     </Compile>
@@ -98,6 +101,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="VoteResultPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VoteResultSelectPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

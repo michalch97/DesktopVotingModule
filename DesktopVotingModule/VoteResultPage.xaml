@@ -7,7 +7,12 @@
       xmlns:vm="clr-namespace:DesktopVotingModuleViewModel;assembly=DesktopVotingModuleViewModel"
       mc:Ignorable="d" 
       d:DesignHeight="416.8" d:DesignWidth="544"
-      Title="Vote Results">
-    <Grid>
+      Title="Vote">
+    <Page.Resources>
+        <vm:VoteResultViewModel x:Key="voteView"/>
+    </Page.Resources>
+    <Grid DataContext="{StaticResource voteView}" >
+        <Button Content="Wróć" Command="{Binding GoToVoteSelectCommand}" CommandParameter="{Binding ElementName=Page}" Background="DarkGray" Foreground="#231F20" FontFamily="Sitka Banner" FontSize="20" FontWeight="Bold" Margin="314,364,10,9.8"/>
+        <TextBlock HorizontalAlignment="Left" Margin="140,186,0,0" TextWrapping="Wrap" Text="WYNIKI GŁOSOWANIA" VerticalAlignment="Top" Height="67" Width="317" Foreground="White" FontSize="30"/>
     </Grid>
 </Page>
