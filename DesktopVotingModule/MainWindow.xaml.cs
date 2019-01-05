@@ -26,19 +26,6 @@ namespace DesktopVotingModule
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = PageController.Instance;
-
-            ObservableCollection<Candidate> candidates = new ObservableCollection<Candidate>();
-            Candidate c1 = new Candidate("Paweł", 1);
-            Candidate c2 = new Candidate("Michał", 2);
-
-            candidates.Add(c1);
-            candidates.Add(c2);
-
-
-            Vote x = new Vote("Głosowanie 1", candidates, DateTime.Now, DateTime.Now);
-
-            VotesSingleton.voteCollection.Add(x);
         }
         
     }

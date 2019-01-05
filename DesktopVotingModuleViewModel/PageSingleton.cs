@@ -1,16 +1,12 @@
-﻿using System.CodeDom;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using DesktopVotingModuleModel;
-using DesktopVotingModuleViewModel.Annotations;
+﻿using System.ComponentModel;
 
 namespace DesktopVotingModuleViewModel
 {
     //https://stackoverflow.com/questions/44232233/how-to-set-a-static-class-to-data-context
     //https://stackoverflow.com/questions/34762879/static-binding-doesnt-update-when-resource-changes
-    public class PageController
+    public class PageSingleton
     {
-        private static string pageSource="LoginPage.xaml";
+        private static string pageSource= "Pages/MenuPage.xaml";
         public static string PageSource
         {
             get { return pageSource; }
@@ -20,19 +16,11 @@ namespace DesktopVotingModuleViewModel
                 OnStaticPropertyChanged("PageSource");
             }
         }
-
-        private static User user;
-
-        public static User User
+        
+        public static PageSingleton Instance { get; }
+        static PageSingleton()
         {
-            get { return user; }
-            set { user = value; }
-        }
-
-        public static PageController Instance { get; }
-        static PageController()
-        {
-            Instance = new PageController();
+            Instance = new PageSingleton();
         }
 
         public static event PropertyChangedEventHandler StaticPropertyChanged;

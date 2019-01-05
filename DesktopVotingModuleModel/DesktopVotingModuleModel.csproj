@@ -45,13 +45,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API.cs" />
-    <Compile Include="Ballot.cs" />
-    <Compile Include="Candidate.cs" />
-    <Compile Include="CandidatesSingleton.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="Data\Ballot.cs" />
+    <Compile Include="Singletons\BallotSingleton.cs" />
+    <Compile Include="Data\Candidate.cs" />
+    <Compile Include="Data\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Singletons\UserSingleton.cs" />
     <Compile Include="Vote.cs" />
-    <Compile Include="VotesSingleton.cs" />
+    <Compile Include="Singletons\VotesSingleton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

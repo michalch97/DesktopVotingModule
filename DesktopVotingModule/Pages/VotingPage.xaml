@@ -23,7 +23,7 @@
             <TextBlock Grid.Column="2" Text="Kandydat"  FontSize="15" Foreground="Black"/>
         </Grid>
 
-        <ListBox ItemsSource="{Binding CandidatesCollection}" SelectedItem="{Binding SelectedCandidate}" HorizontalAlignment="Stretch" Height="278" Margin="10,61,10,0" VerticalAlignment="Top" Background="#FFE4E4E4" BorderBrush="#FFE4E4E4" SelectionChanged="ListBox_SelectionChanged">
+        <ListBox ItemsSource="{Binding Candidates}" SelectedItem="{Binding SelectedCandidate}" HorizontalAlignment="Stretch" Height="278" Margin="10,61,10,0" VerticalAlignment="Top" Background="#FFE4E4E4" BorderBrush="#FFE4E4E4">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="0,2" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
@@ -46,8 +46,8 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <Button Content="Głosuj" Command="{Binding VoteCandidateCommand}" CommandParameter="{Binding ElementName=Page}" Background="DarkGray" Foreground="#231F20" FontFamily="Sitka Banner" FontSize="20" FontWeight="Bold" Margin="10,364,314,9.8"/>
-        <Button Content="Wróć" Command="{Binding GoToVoteSelectCommand}" CommandParameter="{Binding ElementName=Page}" Background="DarkGray" Foreground="#231F20" FontFamily="Sitka Banner" FontSize="20" FontWeight="Bold" Margin="314,364,10,9.8"/>
+        <Button Content="Głosuj" Command="{Binding VoteCandidateCommand}" Background="DarkGray" Foreground="#231F20" FontFamily="Sitka Banner" FontSize="20" FontWeight="Bold" Margin="10,364,314,9.8"/>
+        <Button Content="Wróć" Command="{Binding GoToVoteSelectCommand}" Background="DarkGray" Foreground="#231F20" FontFamily="Sitka Banner" FontSize="20" FontWeight="Bold" Margin="314,364,10,9.8"/>
         <TextBlock HorizontalAlignment="Center" Margin="10,10,10,0" TextWrapping="Wrap" Text="{Binding Path=VoteName}" Foreground="White" FontSize="19" VerticalAlignment="Top" Height="26" Width="524" TextAlignment="Center"/>
     </Grid>
 </Page>

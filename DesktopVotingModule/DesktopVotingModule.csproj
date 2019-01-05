@@ -55,29 +55,29 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AfterVotePage.xaml.cs">
+    <Compile Include="Pages\AfterVotePage.xaml.cs">
       <DependentUpon>AfterVotePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MenuPage.xaml.cs">
+    <Compile Include="Pages\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VoteResultPage.xaml.cs">
+    <Compile Include="Pages\VoteResultPage.xaml.cs">
       <DependentUpon>VoteResultPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VoteResultSelectPage.xaml.cs">
+    <Compile Include="Pages\VoteResultSelectPage.xaml.cs">
       <DependentUpon>VoteResultSelectPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VoteSelectPage.xaml.cs">
+    <Compile Include="Pages\VoteSelectPage.xaml.cs">
       <DependentUpon>VoteSelectPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="VotingPage.xaml.cs">
+    <Compile Include="Pages\VotingPage.xaml.cs">
       <DependentUpon>VotingPage.xaml</DependentUpon>
     </Compile>
-    <Page Include="AfterVotePage.xaml">
+    <Page Include="Pages\AfterVotePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="LoginPage.xaml">
+    <Page Include="Pages\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -89,30 +89,30 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="LoginPage.xaml.cs">
+    <Compile Include="Pages\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MenuPage.xaml">
+    <Page Include="Pages\MenuPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="VoteResultPage.xaml">
+    <Page Include="Pages\VoteResultPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="VoteResultSelectPage.xaml">
+    <Page Include="Pages\VoteResultSelectPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="VoteSelectPage.xaml">
+    <Page Include="Pages\VoteSelectPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="VotingPage.xaml">
+    <Page Include="Pages\VotingPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

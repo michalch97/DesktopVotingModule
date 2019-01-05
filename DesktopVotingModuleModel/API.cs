@@ -14,7 +14,7 @@ namespace DesktopVotingModuleModel
 {
     public static class API
     {
-        private static readonly string server = "server";
+        private static readonly string server = "https://204412ff-e052-4d36-aae4-4f3488ac1cc1.mock.pstmn.io";
         private static readonly HttpClient client = new HttpClient();
         public static async Task<bool> LoginAsync(User user)
         {
@@ -46,7 +46,7 @@ namespace DesktopVotingModuleModel
             return false;
         }
 
-        public static async Task<Ballot> GetBallots(User user)
+        public static async Task<ObservableCollection<Ballot>> GetBallots(User user)
         {
             HttpRequestMessage httpRequestMessage = new HttpRequestMessage
             {
@@ -60,9 +60,9 @@ namespace DesktopVotingModuleModel
             HttpResponseMessage response = client.SendAsync(httpRequestMessage).Result;
             String responseString = await response.Content.ReadAsStringAsync();
             //String responseString = "[{ \"state\": true,\"candidatesSize\": \"2\",\"id\": 0}]";
-            List<Ballot> ballots = JsonConvert.DeserializeObject<List<Ballot>>(responseString);
+            ObservableCollection<Ballot> ballots = JsonConvert.DeserializeObject<ObservableCollection<Ballot>>(responseString);
             //Zakładam, że mamy jedno głosowanie w tym samym czasie, później można to poprawić dodając wybór głosowaia w panelu głosowania
-            return ballots[0];
+            return ballots;
         }
 
         public static async Task<ObservableCollection<Candidate>> GetCandidateNamesForBallot(Ballot ballot, User user)
@@ -80,7 +80,6 @@ namespace DesktopVotingModuleModel
             String responseString = await response.Content.ReadAsStringAsync();
             //String responseString = "[{\"name\": \"A\",\"id\": 0},{\"name\": \"B\",\"id\": 1}]";
             ObservableCollection<Candidate> values = JsonConvert.DeserializeObject<ObservableCollection<Candidate>>(responseString);
-            ballot.candidates = values.ToList();
             return values;
         }
 

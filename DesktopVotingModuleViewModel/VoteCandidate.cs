@@ -11,10 +11,17 @@ namespace DesktopVotingModuleViewModel
         public VoteCandidate(VoteCandidateViewModel viewModel)
         {
             this.viewModel = viewModel;
+            this.viewModel.PropertyChanged += (s, e) =>
+            {
+                if (this.CanExecuteChanged != null)
+                {
+                    this.CanExecuteChanged(this, new EventArgs());
+                }
+            };
         }
         public bool CanExecute(object parameter)
         {
-            return true;
+            return viewModel.SelectedCandidate != null;
         }
 
         public void Execute(object parameter)

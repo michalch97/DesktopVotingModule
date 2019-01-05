@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Runtime.Remoting.Messaging;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using DesktopVotingModuleModel;
 
 namespace DesktopVotingModuleViewModel
 {
@@ -19,7 +21,10 @@ namespace DesktopVotingModuleViewModel
 
         public void Execute(object parameter)
         {
-            PageController.PageSource = "MenuPage.xaml";
+            UserSingleton.user = new User();
+            BallotSingleton.selectedBallot = new Ballot();
+            BallotSingleton.ballots = new ObservableCollection<Ballot>();
+            PageSingleton.PageSource = "Pages/MenuPage.xaml";
         }
 
         public event EventHandler CanExecuteChanged;

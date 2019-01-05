@@ -41,24 +41,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BackToStartPage.cs" />
+    <Compile Include="BackTo\BackToStartPage.cs" />
+    <Compile Include="BackTo\BackToVoteSelectPage.cs" />
+    <Compile Include="GoTo.cs" />
+    <Compile Include="PageSingleton.cs" />
     <Compile Include="SelectVoteResult.cs" />
-    <Compile Include="GoToVotePage.cs" />
-    <Compile Include="GoToVoteResultPage.cs" />
-    <Compile Include="GoToVoteSelectPage.cs" />
     <Compile Include="IPassword.cs" />
     <Compile Include="LoginUser.cs" />
-    <Compile Include="LoginViewModel.cs" />
-    <Compile Include="MenuViewModel.cs" />
-    <Compile Include="PageController.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\MenuViewModel.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SelectCandidate.cs" />
     <Compile Include="SelectVote.cs" />
     <Compile Include="VoteCandidate.cs" />
-    <Compile Include="VoteCandidateViewModel.cs" />
-    <Compile Include="VoteResultViewModel.cs" />
-    <Compile Include="VoteViewModel.cs" />
+    <Compile Include="ViewModels\VoteCandidateViewModel.cs" />
+    <Compile Include="ViewModels\VoteResultViewModel.cs" />
+    <Compile Include="ViewModels\VoteViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DesktopVotingModuleModel\DesktopVotingModuleModel.csproj">

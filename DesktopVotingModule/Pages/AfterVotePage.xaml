@@ -16,7 +16,8 @@
             <TextBlock Text="Dziękujemy za oddanie głosu!" FontSize="40" FontFamily="Sitka Banner" Foreground="#FF231F20" VerticalAlignment="Top" HorizontalAlignment="Left" Height="85"/>
         </Label>
 
-        <Button Content="Wróć" Command="{Binding BackToStartPageCommand}" CommandParameter="{Binding ElementName=Page}" Background="DarkGray" Foreground="#231F20" FontFamily="Sitka Banner" FontSize="20" FontWeight="Bold" Margin="162,364,162,10"/>
+        <Button Content="Wyloguj" Command="{Binding BackToStartPageCommand}" Background="DarkGray" Foreground="#231F20" FontFamily="Sitka Banner" FontSize="20" FontWeight="Bold" Margin="44,364,280,10"/>
+        <Button Content="Wróć do listy głosowań" Command="{Binding BackToVoteSelectPageCommand}" Background="DarkGray" Foreground="#231F20" FontFamily="Sitka Banner" FontSize="20" FontWeight="Bold" Margin="280,364,44,10"/>
         
     </Grid>
 </Page>

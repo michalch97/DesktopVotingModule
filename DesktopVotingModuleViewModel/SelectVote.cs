@@ -7,30 +7,32 @@ using System.Windows.Input;
 
 namespace DesktopVotingModuleViewModel
 {
-    public class GetVote : ICommand
+    public class SelectVote : ICommand
     {
         private VoteViewModel viewModel;
 
-        public GetVote(VoteViewModel viewModel)
+        public SelectVote(VoteViewModel viewModel)
         {
             this.viewModel = viewModel;
+            this.viewModel.PropertyChanged += (s, e) =>
+            {
+                if (this.CanExecuteChanged != null)
+                {
+                    this.CanExecuteChanged(this, new EventArgs());
+                }
+            };
         }
 
         public bool CanExecute(object parameter)
         {
-            return true;
+            if (viewModel.SelectedBallot != null && viewModel.SelectedBallot.SelectedCandidate == null)
+                return true;
+            return false;
         }
 
         public void Execute(object parameter)
         {
-            if (viewModel.SelectedVote != null)
-            {
-                Vote tmpVote = VotesSingleton.voteCollection.Where(x => x.Name == viewModel.SelectedVote.Name).FirstOrDefault();
-                CandidatesSingleton.candidatesCollection.Add(tmpVote.Candidates);
-                VotesSingleton.VoteName = viewModel.SelectedVote.Name;
-            }
-
-            viewModel.GetVote();
+            Task.Run(async () => { await viewModel.GetVote(); });
         }
 
         public event EventHandler CanExecuteChanged;

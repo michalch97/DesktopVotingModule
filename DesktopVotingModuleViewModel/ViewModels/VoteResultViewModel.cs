@@ -27,7 +27,7 @@ namespace DesktopVotingModuleViewModel
 
         public VoteResultViewModel()
         {
-            user = PageController.User;
+            user = UserSingleton.user;
             //ballot = Task.Run(async () => { return await API.GetBallots(user); }).Result;
             //CandidatesSingleton.candidatesCollection = Task.Run(async () => { return await API.GetCandidateNamesForBallot(ballot, user); }).Result;
             //candidatesCollection = CandidatesSingleton.candidatesCollection;
@@ -60,7 +60,7 @@ namespace DesktopVotingModuleViewModel
 
         public void GetVoteResult()
         {
-            PageController.PageSource = "VoteResultPage.xaml";
+            PageSingleton.PageSource = "Pages/VoteResultPage.xaml";
         }
     }
 }

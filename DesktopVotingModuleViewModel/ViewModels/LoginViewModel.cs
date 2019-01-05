@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -34,6 +35,14 @@ namespace DesktopVotingModuleViewModel
             }
         }
 
+        public ICommand BackToStartCommand
+        {
+            get
+            {
+                return new BackToStartPage();
+            }
+        }
+
         public void GetPassword(object parameter)
         {
             var passwordContainer = parameter as IPassword;
@@ -46,9 +55,12 @@ namespace DesktopVotingModuleViewModel
         public async Task Authorize()
         {
             User user = new User(login,password);
-            //bool authorizationStatus = await API.LoginAsync(user);
-            PageController.PageSource = "MenuPage.xaml";
-            PageController.User = user;
+            bool authorizationStatus = await API.LoginAsync(user);
+            ObservableCollection<Ballot> ballots = await API.GetBallots(user);
+            UserSingleton.user = user;
+            BallotSingleton.ballots = ballots;
+            PageSingleton.PageSource = "Pages/VoteSelectPage.xaml";
+            
         }
         private string ConvertToUnsecureString(System.Security.SecureString securePassword)
         {

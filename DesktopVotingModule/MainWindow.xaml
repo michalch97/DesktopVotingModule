@@ -14,6 +14,6 @@
             <Image Source="pl.png" Stretch="Fill" Height="183" Margin="65.5,0,65.5,0"/>
             <Label Content="System głosowania w Samorządzie Doktorantów PŁ" Foreground="#231F20" FontSize="24" FontFamily="Sitka Banner" FontWeight="Bold" Margin="10,0" />
         </StackPanel>
-        <Frame x:Name="Page" Source="{Binding Path=(vm:PageController.PageSource)}" NavigationUIVisibility="Hidden" Margin="0,253,0,0.4"/>
+        <Frame x:Name="Page" Source="{Binding Path=(vm:PageSingleton.PageSource)}" NavigationUIVisibility="Hidden" Margin="0,253,0,0.4"/>
     </Grid>
 </Window>

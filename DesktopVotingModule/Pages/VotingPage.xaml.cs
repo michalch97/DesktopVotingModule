@@ -1,7 +1,7 @@
-﻿using System;
+﻿using DesktopVotingModuleViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,26 +13,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DesktopVotingModuleViewModel;
 
 namespace DesktopVotingModule
 {
     /// <summary>
-    /// Interaction logic for LoginPage.xaml
+    /// Interaction logic for VotePage.xaml
     /// </summary>
-    public partial class LoginPage : Page, IPassword
+    public partial class VotePage : Page
     {
-        public LoginPage()
+        public VotePage()
         {
             InitializeComponent();
-        }
-
-        public SecureString Password
-        {
-            get
-            {
-                return PasswordBox.SecurePassword;
-            }
         }
     }
 }
