@@ -58,6 +58,9 @@
     <Compile Include="Pages\AfterVotePage.xaml.cs">
       <DependentUpon>AfterVotePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AuthorizationError.xaml.cs">
+      <DependentUpon>AuthorizationError.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
@@ -74,6 +77,10 @@
       <DependentUpon>VotingPage.xaml</DependentUpon>
     </Compile>
     <Page Include="Pages\AfterVotePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AuthorizationError.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

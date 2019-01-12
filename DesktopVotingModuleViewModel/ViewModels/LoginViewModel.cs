@@ -56,11 +56,17 @@ namespace DesktopVotingModuleViewModel
         {
             User user = new User(login,password);
             bool authorizationStatus = await API.LoginAsync(user);
-            ObservableCollection<Ballot> ballots = await API.GetBallots(user);
-            UserSingleton.user = user;
-            BallotSingleton.ballots = ballots;
-            PageSingleton.PageSource = "Pages/VoteSelectPage.xaml";
-            
+            if (authorizationStatus)
+            {
+                ObservableCollection<Ballot> ballots = await API.GetBallots(user);
+                UserSingleton.user = user;
+                BallotSingleton.ballots = ballots;
+                PageSingleton.PageSource = "Pages/VoteSelectPage.xaml";
+            }
+            else
+            {
+                PageSingleton.PageSource = "Pages/AuthorizationError.xaml";
+            }
         }
         private string ConvertToUnsecureString(System.Security.SecureString securePassword)
         {

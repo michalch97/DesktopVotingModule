@@ -6,11 +6,12 @@ namespace DesktopVotingModuleModel
 {
     public class Ballot
     {
-        public bool state;
-        public string candidatesSize;
         public int id;
-        public ObservableCollection<Candidate> candidates;
         public string name;
+        public string candidatesSize;
+        public bool state;
+        public ObservableCollection<Candidate> candidates;
+        
         public Candidate selectedCandidate;
 
         public string Name
@@ -29,7 +30,6 @@ namespace DesktopVotingModuleModel
 
         public Ballot()
         {
-            name = "Domyślna nazwa";
             candidates = new ObservableCollection<Candidate>();
             EndDate = DateTime.Now;
         }
