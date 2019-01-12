@@ -61,7 +61,7 @@ namespace DesktopVotingModuleViewModel
                 ObservableCollection<Ballot> ballots = await API.GetBallots(user);
                 UserSingleton.user = user;
                 BallotSingleton.ballots = ballots;
-                PageSingleton.PageSource = "Pages/VoteSelectPage.xaml";
+                PageSingleton.PageSource = "Pages/MenuPage.xaml";
             }
             else
             {

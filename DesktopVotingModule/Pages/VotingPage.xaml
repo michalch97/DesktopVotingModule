@@ -48,6 +48,6 @@
 
         <Button Content="Głosuj" Command="{Binding VoteCandidateCommand}" Background="DarkGray" Foreground="#231F20" FontFamily="Sitka Banner" FontSize="20" FontWeight="Bold" Margin="10,364,314,9.8"/>
         <Button Content="Wróć" Command="{Binding GoToVoteSelectCommand}" Background="DarkGray" Foreground="#231F20" FontFamily="Sitka Banner" FontSize="20" FontWeight="Bold" Margin="314,364,10,9.8"/>
-        <TextBlock HorizontalAlignment="Center" Margin="10,10,10,0" TextWrapping="Wrap" Text="{Binding Path=VoteName}" Foreground="White" FontSize="19" VerticalAlignment="Top" Height="26" Width="524" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Center" Margin="10,10,10,0" TextWrapping="Wrap" Text="{Binding Path=BallotName}" Foreground="White" FontSize="19" VerticalAlignment="Top" Height="26" Width="524" TextAlignment="Center"/>
     </Grid>
 </Page>

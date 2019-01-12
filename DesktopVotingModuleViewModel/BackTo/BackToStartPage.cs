@@ -21,9 +21,7 @@ namespace DesktopVotingModuleViewModel
 
         public void Execute(object parameter)
         {
-            UserSingleton.user = new User();
-            BallotSingleton.selectedBallot = new Ballot();
-            BallotSingleton.ballots = new ObservableCollection<Ballot>();
+            BallotSingleton.selectedBallot = new Ballot(0, null, null, false);
             PageSingleton.PageSource = "Pages/MenuPage.xaml";
         }
 

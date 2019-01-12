@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
@@ -15,8 +18,8 @@ namespace DesktopVotingModuleModel
 {
     public static class API
     {
-        //private static readonly string server = "https://204412ff-e052-4d36-aae4-4f3488ac1cc1.mock.pstmn.io";
-        private static readonly string server = "https://19dc8421-2b25-4aeb-ab85-18cd233ef2a2.mock.pstmn.io";
+        private static readonly string server = "https://dbc2c61f-60a5-4eb8-a105-92b7649831b1.mock.pstmn.io";
+        private static readonly string resultsServer = "https://dbc2c61f-60a5-4eb8-a105-92b7649831b1.mock.pstmn.io";
         private static readonly HttpClient client = new HttpClient();
         public static async Task<bool> LoginAsync(User user)
         {
@@ -36,11 +39,11 @@ namespace DesktopVotingModuleModel
                 Content = new StringContent(content)
             };
             HttpResponseMessage response = client.SendAsync(httpRequestMessage).Result;
+            String responseString = await response.Content.ReadAsStringAsync();
             if (response.StatusCode != HttpStatusCode.OK)
             {
                 return false;
             }
-            String responseString = await response.Content.ReadAsStringAsync();
             Dictionary<string, string> values = JsonConvert.DeserializeObject<Dictionary<string, string>>(responseString);
             user.Token = values["token"];
             return true;
@@ -60,7 +63,7 @@ namespace DesktopVotingModuleModel
             HttpResponseMessage response = client.SendAsync(httpRequestMessage).Result;
             String responseString = await response.Content.ReadAsStringAsync();
             ObservableCollection<Ballot> ballots = JsonConvert.DeserializeObject<ObservableCollection<Ballot>>(responseString);
- 
+
             return ballots;
         }
 
@@ -69,7 +72,7 @@ namespace DesktopVotingModuleModel
             HttpRequestMessage httpRequestMessage = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
-                RequestUri = new Uri(server + "/ballot/" + ballot.id),
+                RequestUri = new Uri(server + "/ballot/" + ballot.Id),
                 Headers =
                 {
                     {HttpRequestHeader.Authorization.ToString(),"Bearer " + user.Token}
@@ -85,7 +88,7 @@ namespace DesktopVotingModuleModel
         {
             string content =
                 "{"
-                + "\"ballotId\": " + ballot.id + ","
+                + "\"ballotId\": " + ballot.Id + ","
                 + "\"candidateId\": " + candidate.Id +
                 "}";
             HttpRequestMessage httpRequestMessage = new HttpRequestMessage
@@ -101,6 +104,21 @@ namespace DesktopVotingModuleModel
             };
             HttpResponseMessage response = client.SendAsync(httpRequestMessage).Result;
             var responseString = await response.Content.ReadAsStringAsync();
+        }
+
+        public static async Task GetResultsImage(Ballot ballot, string pathToSave)
+        {
+            HttpRequestMessage httpRequestMessage = new HttpRequestMessage
+            {
+                Method = HttpMethod.Get,
+                RequestUri = new Uri(resultsServer + "/datavisualization/ballotGraph/" + ballot.Id)
+            };
+            HttpResponseMessage response = client.SendAsync(httpRequestMessage).Result;
+            byte[] responseBytes = await response.Content.ReadAsByteArrayAsync();
+            using (Image image = Image.FromStream(new MemoryStream(responseBytes)))
+            {
+                image.Save(pathToSave + "resultsID" + ballot.Id + ".png", ImageFormat.Png);
+            }
         }
     }
 }

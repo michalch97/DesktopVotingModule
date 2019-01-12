@@ -16,6 +16,6 @@
         <Label Margin="143,91,143,230.8">
             <TextBlock Text="Błąd autoryzacji!" FontSize="40" FontFamily="Sitka Banner" Foreground="#FF231F20" VerticalAlignment="Top" HorizontalAlignment="Left" Height="85"/>
         </Label>
-        <Button Content="Wróć" Command="{Binding BackToStartPageCommand}" Background="DarkGray" Foreground="#231F20" FontFamily="Sitka Banner" FontSize="20" FontWeight="Bold" Margin="162,364,162,10"/>
+        <Button Content="Wróć" Command="{Binding BackToLoginPageCommand}" Background="DarkGray" Foreground="#231F20" FontFamily="Sitka Banner" FontSize="20" FontWeight="Bold" Margin="162,364,162,10"/>
     </Grid>
 </Page>

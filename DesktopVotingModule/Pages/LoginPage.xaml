@@ -17,13 +17,7 @@
         <TextBox Text="{Binding Mode=OneWayToSource, Path=Login}"  HorizontalAlignment="Center" Height="35" Background="DarkGray" Foreground="#231F20" TextWrapping="NoWrap" TextAlignment="Center" Width="285" Margin="130,77,129,304.8" FontWeight="Bold" FontFamily="Sitka Banner" FontSize="20"/>
         <Label Content="Hasło:" Foreground="#231F20" HorizontalAlignment="Center" FontSize="18" Width="58" FontFamily="Sitka Banner" FontWeight="Bold" RenderTransformOrigin="0.464,1.33" Margin="243,131,243,246.8" />
         <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Center" Height="35" Background="DarkGray" Foreground="#231F20" Width="285" Margin="130,175,129,206.8" FontWeight="Bold" FontFamily="Sitka Banner" FontSize="19" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        <Button Content="Zaloguj" Command="{Binding LoginUserCommand}" Background="DarkGray" Foreground="#231F20" FontFamily="Sitka Banner" FontSize="20" FontWeight="Bold" Margin="39,288,285,86"/>
+        <Button Content="Zaloguj" Command="{Binding LoginUserCommand}" CommandParameter="{x:Reference Page}" Background="DarkGray" Foreground="#231F20" FontFamily="Sitka Banner" FontSize="20" FontWeight="Bold" Margin="39,288,285,86"/>
         <Button Content="Wróć" Command="{Binding BackToStartCommand}" Background="DarkGray" Foreground="#231F20" FontFamily="Sitka Banner" FontSize="20" FontWeight="Bold" Margin="285,288,39,86"/>
-        <Grid DataContext="{StaticResource loginView}">
-            <Label Content="Identyfikator użytkownika:" Foreground="#231F20" HorizontalAlignment="Center" FontSize="18" Width="212" FontFamily="Sitka Banner" FontWeight="Bold" Margin="166,23,166,357.8" />
-            <TextBox Text="{Binding Login, Mode=OneWayToSource}"  HorizontalAlignment="Center" Height="35" Background="DarkGray" Foreground="#231F20" TextWrapping="NoWrap" TextAlignment="Center" Width="285" Margin="130,77,129,304.8" FontWeight="Bold" FontFamily="Sitka Banner" FontSize="20"/>
-            <Label Content="Hasło:" Foreground="#231F20" HorizontalAlignment="Center" FontSize="18" Width="58" FontFamily="Sitka Banner" FontWeight="Bold" RenderTransformOrigin="0.464,1.33" Margin="243,131,243,246.8" />
-            <PasswordBox x:Name="PasswordBox1" HorizontalAlignment="Center" Height="35" Background="DarkGray" Foreground="#231F20" Width="285" Margin="130,175,129,206.8" FontWeight="Bold" FontFamily="Sitka Banner" FontSize="19" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-        </Grid>
     </Grid>
 </Page>

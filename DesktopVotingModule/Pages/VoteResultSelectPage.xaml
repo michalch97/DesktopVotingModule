@@ -14,7 +14,7 @@
     <Grid DataContext="{StaticResource voteView}" >
         <TextBlock Grid.Column="0" Text="LISTA WYNIKÓW GŁOSOWANIA"  FontSize="19" Foreground="White" HorizontalAlignment="Center"/>
 
-        <ListBox ItemsSource="{Binding VotesCollection}" SelectedItem="{Binding SelectedVote}" HorizontalAlignment="Stretch" Height="279" Margin="10,60,10,0" VerticalAlignment="Top" Background="#FFE4E4E4" BorderBrush="#FFE4E4E4">
+        <ListBox ItemsSource="{Binding Ballots}" SelectedItem="{Binding SelectedBallot}" HorizontalAlignment="Stretch" Height="279" Margin="10,60,10,0" VerticalAlignment="Top" Background="#FFE4E4E4" BorderBrush="#FFE4E4E4">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="0,2" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
@@ -32,8 +32,6 @@
                         </Grid.ColumnDefinitions>
                         <TextBlock Grid.Column="0" Text="{Binding Path=Name}"  FontSize="15" Foreground="Black"/>
                         <TextBlock Grid.Column="1" Text="{Binding Path=EndDate}"  FontSize="15" Foreground="Black"/>
-
-
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -49,6 +47,6 @@
             <TextBlock Grid.Column="1" Text="Nazwa"  FontSize="15" Foreground="Black"/>
             <TextBlock Grid.Column="2" Text="Data zakończenia"  FontSize="15" Foreground="Black"/>
         </Grid>
-        <Button Content="Wróć" Command="{Binding BackToStartPageCommand}" Background="DarkGray" Foreground="#231F20" FontFamily="Sitka Banner" FontSize="20" FontWeight="Bold" Margin="314,364,10,9.8"/>
+        <Button Content="Wróć" Command="{Binding BackToMenu}" Background="DarkGray" Foreground="#231F20" FontFamily="Sitka Banner" FontSize="20" FontWeight="Bold" Margin="314,364,10,9.8"/>
     </Grid>
 </Page>

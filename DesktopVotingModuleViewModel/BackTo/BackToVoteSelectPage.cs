@@ -13,7 +13,7 @@ namespace DesktopVotingModuleViewModel
 
         public void Execute(object parameter)
         {
-            BallotSingleton.selectedBallot = new Ballot();
+            BallotSingleton.selectedBallot = new Ballot(0, null, null, false);
             PageSingleton.PageSource = "Pages/VoteSelectPage.xaml";
         }
 

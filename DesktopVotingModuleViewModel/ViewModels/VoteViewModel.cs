@@ -48,6 +48,14 @@ namespace DesktopVotingModuleViewModel
             }
         }
 
+        public ICommand BackToLoginPageCommand
+        {
+            get
+            {
+                return new GoTo(LoginPage);
+            }
+        }
+
         public ICommand BackToVoteSelectPageCommand
         {
             get
@@ -64,6 +72,11 @@ namespace DesktopVotingModuleViewModel
             }
         }
 
+        public void LoginPage()
+        {
+            UserSingleton.user = new User();
+            PageSingleton.PageSource = "Pages/LoginPage.xaml";
+        }
         public async Task GetVote()
         {
             selectedBallot.candidates = await API.GetCandidateNamesForBallot(selectedBallot,user);

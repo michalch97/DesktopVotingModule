@@ -17,12 +17,12 @@ namespace DesktopVotingModuleViewModel
         {
             get
             {
-                return new GoTo(LoginPage);
+                return new GoTo(VoteSelectPage);
             }
         }
-        public void LoginPage()
+        public void VoteSelectPage()
         {
-            PageSingleton.PageSource = "Pages/LoginPage.xaml";
+            PageSingleton.PageSource = "Pages/VoteSelectPage.xaml";
         }
 
         public ICommand GoToVoteResultCommand

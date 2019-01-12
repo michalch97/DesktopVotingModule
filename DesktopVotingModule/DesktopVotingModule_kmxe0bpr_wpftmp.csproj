@@ -35,28 +35,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xaml">
-      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="WindowsBase" />
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Compile Include="FolderBrowser.cs" />
     <Compile Include="Pages\AfterVotePage.xaml.cs">
       <DependentUpon>AfterVotePage.xaml</DependentUpon>
     </Compile>
@@ -78,22 +58,6 @@
     <Compile Include="Pages\VotingPage.xaml.cs">
       <DependentUpon>VotingPage.xaml</DependentUpon>
     </Compile>
-    <Page Include="Pages\AfterVotePage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\AuthorizationError.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\LoginPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -105,26 +69,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Pages\MenuPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\VoteResultPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\VoteResultSelectPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\VoteSelectPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\VotingPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -153,7 +97,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="pl.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DesktopVotingModuleModel\DesktopVotingModuleModel.csproj">
@@ -166,4 +109,33 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ReferencePath Include="D:\Dysk Google\Dokumenty\Studia\Semestr_V\Inzynieria_oprogramowania\DesktopVotingModule\DesktopVotingModuleModel\bin\Debug\DesktopVotingModuleModel.dll" />
+    <ReferencePath Include="D:\Dysk Google\Dokumenty\Studia\Semestr_V\Inzynieria_oprogramowania\DesktopVotingModule\DesktopVotingModuleViewModel\bin\Debug\DesktopVotingModuleViewModel.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\Microsoft.CSharp.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\mscorlib.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\PresentationCore.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\PresentationFramework.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Core.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Data.DataSetExtensions.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Data.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Net.Http.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Xaml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Xml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Xml.Linq.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\WindowsBase.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="D:\Dysk Google\Dokumenty\Studia\Semestr_V\Inzynieria_oprogramowania\DesktopVotingModule\DesktopVotingModule\obj\Debug\Pages\AfterVotePage.g.cs" />
+    <Compile Include="D:\Dysk Google\Dokumenty\Studia\Semestr_V\Inzynieria_oprogramowania\DesktopVotingModule\DesktopVotingModule\obj\Debug\Pages\AuthorizationError.g.cs" />
+    <Compile Include="D:\Dysk Google\Dokumenty\Studia\Semestr_V\Inzynieria_oprogramowania\DesktopVotingModule\DesktopVotingModule\obj\Debug\Pages\LoginPage.g.cs" />
+    <Compile Include="D:\Dysk Google\Dokumenty\Studia\Semestr_V\Inzynieria_oprogramowania\DesktopVotingModule\DesktopVotingModule\obj\Debug\MainWindow.g.cs" />
+    <Compile Include="D:\Dysk Google\Dokumenty\Studia\Semestr_V\Inzynieria_oprogramowania\DesktopVotingModule\DesktopVotingModule\obj\Debug\Pages\MenuPage.g.cs" />
+    <Compile Include="D:\Dysk Google\Dokumenty\Studia\Semestr_V\Inzynieria_oprogramowania\DesktopVotingModule\DesktopVotingModule\obj\Debug\Pages\VoteResultPage.g.cs" />
+    <Compile Include="D:\Dysk Google\Dokumenty\Studia\Semestr_V\Inzynieria_oprogramowania\DesktopVotingModule\DesktopVotingModule\obj\Debug\Pages\VoteResultSelectPage.g.cs" />
+    <Compile Include="D:\Dysk Google\Dokumenty\Studia\Semestr_V\Inzynieria_oprogramowania\DesktopVotingModule\DesktopVotingModule\obj\Debug\Pages\VoteSelectPage.g.cs" />
+    <Compile Include="D:\Dysk Google\Dokumenty\Studia\Semestr_V\Inzynieria_oprogramowania\DesktopVotingModule\DesktopVotingModule\obj\Debug\Pages\VotingPage.g.cs" />
+    <Compile Include="D:\Dysk Google\Dokumenty\Studia\Semestr_V\Inzynieria_oprogramowania\DesktopVotingModule\DesktopVotingModule\obj\Debug\App.g.cs" />
+  </ItemGroup>
 </Project>

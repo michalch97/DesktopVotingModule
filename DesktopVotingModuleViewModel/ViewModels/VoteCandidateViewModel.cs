@@ -30,14 +30,16 @@ namespace DesktopVotingModuleViewModel
                 this.OnPropertyChanged("SelectedCandidate");
             }
         }
+        public string BallotName
+        {
+            get { return ballot.Name; }
+        }
 
         public ObservableCollection<Candidate> Candidates
         {
             get { return candidates; }
             set { candidates = value; }
         }
-
-
 
         public VoteCandidateViewModel()
         {

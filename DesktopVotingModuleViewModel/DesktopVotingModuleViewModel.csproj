@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,9 +44,10 @@
   <ItemGroup>
     <Compile Include="BackTo\BackToStartPage.cs" />
     <Compile Include="BackTo\BackToVoteSelectPage.cs" />
+    <Compile Include="GetPath.cs" />
     <Compile Include="GoTo.cs" />
+    <Compile Include="IBrowse.cs" />
     <Compile Include="PageSingleton.cs" />
-    <Compile Include="SelectVoteResult.cs" />
     <Compile Include="IPassword.cs" />
     <Compile Include="LoginUser.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />

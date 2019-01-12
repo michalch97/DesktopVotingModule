@@ -6,39 +6,44 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Windows.Input;
 using DesktopVotingModuleModel;
+using Microsoft.Win32;
 
 namespace DesktopVotingModuleViewModel
 {
     public class VoteResultViewModel
     {
-        private User user;
-        private Ballot ballot;
-        private Candidate selectedCandidate;
-        private Vote selectedVote;
-        private ObservableCollection<Vote> votesCollection;
-
-
-        public Vote SelectedVote { get => selectedVote; set => selectedVote = value; }
-
-        public ObservableCollection<Vote> VotesCollection { get => votesCollection; set => votesCollection = value; }
-
-
+        private ObservableCollection<Ballot> ballots;
+        private Ballot selectedBallot;
+        private string folderPath;
+        public IBrowse FolderBrowser { get; set; }
+        public ObservableCollection<Ballot> Ballots
+        {
+            get { return ballots; }
+            set { ballots = value; }
+        }
+        public Ballot SelectedBallot
+        {
+            get { return selectedBallot; }
+            set
+            {
+                selectedBallot = value;
+                this.OnPropertyChanged("SelectedBallot");
+            }
+        }
+        
         public VoteResultViewModel()
         {
-            user = UserSingleton.user;
-            //ballot = Task.Run(async () => { return await API.GetBallots(user); }).Result;
-            //CandidatesSingleton.candidatesCollection = Task.Run(async () => { return await API.GetCandidateNamesForBallot(ballot, user); }).Result;
-            //candidatesCollection = CandidatesSingleton.candidatesCollection;
-            VotesCollection = VotesSingleton.voteCollection;
+            ballots = BallotSingleton.ballots;
+            selectedBallot = BallotSingleton.selectedBallot;
         }
-
-        public ICommand BackToStartPageCommand
+        public ICommand GetVoteResultCommand
         {
             get
             {
-                return new BackToStartPage();
+                return new GoTo(VoteResult);
             }
         }
 
@@ -46,21 +51,38 @@ namespace DesktopVotingModuleViewModel
         {
             get
             {
-                return new BackToStartPage();
-            }
-        }     
-
-        public ICommand GetVoteResultCommand
-        {
-            get
-            {
-                return new SelectVoteResult(this);
+                return new GoTo(VoteSelect);
             }
         }
 
-        public void GetVoteResult()
+        public ICommand GetPathCommand
         {
+            get
+            {
+                return new GetPath(this);
+            }
+        }
+
+        public async Task SetPath()
+        {
+            folderPath = FolderBrowser.Browse();
+            await API.GetResultsImage(selectedBallot, folderPath);
+        }
+        public void VoteSelect()
+        {
+            PageSingleton.PageSource = "Pages/VoteResultSelectPage.xaml";
+        }
+        public void VoteResult()
+        {
+            BallotSingleton.selectedBallot = SelectedBallot;
             PageSingleton.PageSource = "Pages/VoteResultPage.xaml";
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        
+        protected virtual void OnPropertyChanged(string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
