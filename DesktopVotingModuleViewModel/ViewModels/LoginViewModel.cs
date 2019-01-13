@@ -35,14 +35,6 @@ namespace DesktopVotingModuleViewModel
             }
         }
 
-        public ICommand BackToStartCommand
-        {
-            get
-            {
-                return new BackToStartPage();
-            }
-        }
-
         public void GetPassword(object parameter)
         {
             var passwordContainer = parameter as IPassword;

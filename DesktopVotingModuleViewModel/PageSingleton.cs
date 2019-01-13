@@ -6,8 +6,7 @@ namespace DesktopVotingModuleViewModel
     //https://stackoverflow.com/questions/34762879/static-binding-doesnt-update-when-resource-changes
     public class PageSingleton
     {
-        //private static string pageSource = "Pages/LoginPage.xaml";
-        private static string pageSource = "Pages/VoteResultPage.xaml";
+        private static string pageSource = "Pages/LoginPage.xaml";
         public static string PageSource
         {
             get { return pageSource; }

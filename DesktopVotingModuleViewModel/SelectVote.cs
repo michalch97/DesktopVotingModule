@@ -25,7 +25,7 @@ namespace DesktopVotingModuleViewModel
 
         public bool CanExecute(object parameter)
         {
-            if (viewModel.SelectedBallot != null && viewModel.SelectedBallot.SelectedCandidate == null)
+            if (viewModel.SelectedBallot != null && viewModel.SelectedBallot.SelectedCandidate == null && viewModel.SelectedBallot.State)
                 return true;
             return false;
         }

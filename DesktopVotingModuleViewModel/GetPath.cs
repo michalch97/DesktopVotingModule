@@ -21,6 +21,7 @@ namespace DesktopVotingModuleViewModel
 
         public void Execute(object parameter)
         {
+            viewModel.GetFolderPath();
             Task.Run(async () => { await viewModel.SetPath(); });
         }
 

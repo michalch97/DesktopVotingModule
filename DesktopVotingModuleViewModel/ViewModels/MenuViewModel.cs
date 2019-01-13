@@ -38,6 +38,21 @@ namespace DesktopVotingModuleViewModel
             PageSingleton.PageSource = "Pages/VoteResultSelectPage.xaml";
         }
 
+        public ICommand GoToLoginPageCommand
+        {
+            get
+            {
+                return new GoTo(LoginPage);
+            }
+        }
+        public void LoginPage()
+        {
+            BallotSingleton.selectedBallot = new Ballot(0,null,null,false);
+            BallotSingleton.ballots = new ObservableCollection<Ballot>();
+            UserSingleton.user = new User();
+            PageSingleton.PageSource = "Pages/LoginPage.xaml";
+        }
+
 
     }
 }

@@ -59,6 +59,7 @@
     <Compile Include="ViewModels\VoteCandidateViewModel.cs" />
     <Compile Include="ViewModels\VoteResultViewModel.cs" />
     <Compile Include="ViewModels\VoteViewModel.cs" />
+    <Compile Include="VoteResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DesktopVotingModuleModel\DesktopVotingModuleModel.csproj">

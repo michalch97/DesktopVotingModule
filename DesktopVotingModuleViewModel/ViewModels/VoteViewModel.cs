@@ -75,6 +75,8 @@ namespace DesktopVotingModuleViewModel
         public void LoginPage()
         {
             UserSingleton.user = new User();
+            BallotSingleton.selectedBallot = new Ballot(0,null,null,false);
+            BallotSingleton.ballots = new ObservableCollection<Ballot>();
             PageSingleton.PageSource = "Pages/LoginPage.xaml";
         }
         public async Task GetVote()

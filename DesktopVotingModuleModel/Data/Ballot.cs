@@ -27,6 +27,14 @@ namespace DesktopVotingModuleModel
             get { return state; }
         }
 
+        public string StateToString
+        {
+            get
+            {
+                return state ? "Otwarte" : "Zamkniętę";
+            }
+        }
+
         public Ballot(int id, string name, string candidatesSize, bool state)
         {
             this.id = id;
@@ -34,7 +42,6 @@ namespace DesktopVotingModuleModel
             this.candidatesSize = candidatesSize;
             this.state = state;
             candidates = new ObservableCollection<Candidate>();
-            EndDate = DateTime.Now;
         }
 
         public ObservableCollection<Candidate> candidates;
@@ -45,12 +52,5 @@ namespace DesktopVotingModuleModel
             get { return selectedCandidate; }
             set { selectedCandidate = value; }
         }
-
-        public DateTime EndDate { get; set; }
-        //public Ballot()
-        //{
-        //    candidates = new ObservableCollection<Candidate>();
-        //    EndDate = DateTime.Now;
-        //}
     }
 }

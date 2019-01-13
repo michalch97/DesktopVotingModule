@@ -28,11 +28,11 @@
                         </Grid.RenderTransform>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="200"/>
-                            <ColumnDefinition Width="160" />
+                            <ColumnDefinition Width="100" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <TextBlock Grid.Column="0" Text="{Binding Path=Name}"  FontSize="15" Foreground="Black"/>
-                        <TextBlock Grid.Column="1" Text="{Binding Path=EndDate}"  FontSize="15" Foreground="Black"/>
+                        <TextBlock Grid.Column="1" Text="{Binding Path=StateToString}"  FontSize="15" Foreground="Black"/>
                         <TextBlock Grid.Column="2" Text="{Binding Path=SelectedCandidate.Name}"  FontSize="15" Foreground="Black"/>
                     </Grid>
                 </DataTemplate>
@@ -42,14 +42,13 @@
         <Button Content="Wybierz" Command="{Binding GetVoteCommand}" Background="DarkGray" Foreground="#231F20" FontFamily="Sitka Banner" FontSize="20" FontWeight="Bold" Margin="10,364,314,9.8"/>
         <Grid Height="20" Margin="10,40,10,0" VerticalAlignment="Top" Background="#FFE4E4E4">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="7"/>
-                <ColumnDefinition Width="200"/>
-                <ColumnDefinition Width="160" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="2*" />
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="1" Text="Nazwa"  FontSize="15" Foreground="Black"/>
-            <TextBlock Grid.Column="2" Text="Data zakończenia"  FontSize="15" Foreground="Black"/>
-            <TextBlock Grid.Column="3" Text="Wybrany kandydat"  FontSize="15" Foreground="Black"/>
+            <TextBlock Grid.Column="0" Text="Nazwa"  FontSize="15" Foreground="Black"/>
+            <TextBlock Grid.Column="1" Text="Status"  FontSize="15" Foreground="Black"/>
+            <TextBlock Grid.Column="2" Text="Wybrany kandydat"  FontSize="15" Foreground="Black"/>
         </Grid>
         <Button Content="Wróć" Command="{Binding BackToStartPageCommand}" Background="DarkGray" Foreground="#231F20" FontFamily="Sitka Banner" FontSize="20" FontWeight="Bold" Margin="314,364,10,9.8"/>
     </Grid>

@@ -43,7 +43,7 @@ namespace DesktopVotingModuleViewModel
         {
             get
             {
-                return new GoTo(VoteResult);
+                return new VoteResult(this);
             }
         }
 
@@ -54,7 +54,6 @@ namespace DesktopVotingModuleViewModel
                 return new GoTo(VoteSelect);
             }
         }
-
         public ICommand GetPathCommand
         {
             get
@@ -63,9 +62,20 @@ namespace DesktopVotingModuleViewModel
             }
         }
 
-        public async Task SetPath()
+        public ICommand BackToMenuCommand
+        {
+            get
+            {
+                return new BackToStartPage();
+            }
+        }
+
+        public void GetFolderPath()
         {
             folderPath = FolderBrowser.Browse();
+        }
+        public async Task SetPath()
+        {
             await API.GetResultsImage(selectedBallot, folderPath);
         }
         public void VoteSelect()

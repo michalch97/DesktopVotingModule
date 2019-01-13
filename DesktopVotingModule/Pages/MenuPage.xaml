@@ -15,6 +15,7 @@
 
         <Button Content="Chcę zagłosować" Command="{Binding GoToVotePageCommand}" Foreground="#FF231F20" FontFamily="Sitka Banner" FontSize="28" FontWeight="Bold" Margin="64,66,64,231" Background="#FFA43434" BorderBrush="#FF830A0A"/>
         <Button Content="Chcę wyświetlić wyniki" Command="{Binding GoToVoteResultCommand}" Background="#FFA43434" Foreground="#FF231F20" FontFamily="Sitka Banner" FontSize="28" FontWeight="Bold" Margin="64,233,64,64" BorderBrush="#FF830A0A"/>
+        <Button Content="Wyloguj" Command="{Binding GoToLoginPageCommand}" Background="#FFA43434" Foreground="#FF231F20" FontFamily="Sitka Banner" FontSize="28" FontWeight="Bold" Margin="194,362,193,9.8" BorderBrush="#FF830A0A"/>
 
     </Grid>
 </Page>

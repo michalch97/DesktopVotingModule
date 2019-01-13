@@ -31,7 +31,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <TextBlock Grid.Column="0" Text="{Binding Path=Name}"  FontSize="15" Foreground="Black"/>
-                        <TextBlock Grid.Column="1" Text="{Binding Path=EndDate}"  FontSize="15" Foreground="Black"/>
+                        <TextBlock Grid.Column="1" Text="{Binding Path=StateToString}"  FontSize="15" Foreground="Black"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -45,8 +45,8 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Column="1" Text="Nazwa"  FontSize="15" Foreground="Black"/>
-            <TextBlock Grid.Column="2" Text="Data zakończenia"  FontSize="15" Foreground="Black"/>
+            <TextBlock Grid.Column="2" Text="Status"  FontSize="15" Foreground="Black"/>
         </Grid>
-        <Button Content="Wróć" Command="{Binding BackToMenu}" Background="DarkGray" Foreground="#231F20" FontFamily="Sitka Banner" FontSize="20" FontWeight="Bold" Margin="314,364,10,9.8"/>
+        <Button Content="Wróć" Command="{Binding BackToMenuCommand}" Background="DarkGray" Foreground="#231F20" FontFamily="Sitka Banner" FontSize="20" FontWeight="Bold" Margin="314,364,10,9.8"/>
     </Grid>
 </Page>
