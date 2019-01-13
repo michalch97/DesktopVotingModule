@@ -10,6 +10,9 @@ namespace DesktopVotingModuleModel
         private string name;
         private string candidatesSize;
         private bool state;
+        private Candidate selectedCandidate;
+        public ObservableCollection<Candidate> candidates;
+
         public int Id
         {
             get { return id; }
@@ -25,6 +28,11 @@ namespace DesktopVotingModuleModel
         public bool State
         {
             get { return state; }
+        }
+        public Candidate SelectedCandidate
+        {
+            get { return selectedCandidate; }
+            set { selectedCandidate = value; }
         }
 
         public string StateToString
@@ -42,15 +50,6 @@ namespace DesktopVotingModuleModel
             this.candidatesSize = candidatesSize;
             this.state = state;
             candidates = new ObservableCollection<Candidate>();
-        }
-
-        public ObservableCollection<Candidate> candidates;
-        public Candidate selectedCandidate;
-
-        public Candidate SelectedCandidate
-        {
-            get { return selectedCandidate; }
-            set { selectedCandidate = value; }
         }
     }
 }
