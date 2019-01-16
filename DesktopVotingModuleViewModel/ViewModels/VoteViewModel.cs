@@ -34,6 +34,11 @@ namespace DesktopVotingModuleViewModel
             }
         }
 
+        public string AfterVoteText
+        {
+            get { return PageSingleton.AfterVoteText; }
+        }
+
         public VoteViewModel()
         {
             user = UserSingleton.user;

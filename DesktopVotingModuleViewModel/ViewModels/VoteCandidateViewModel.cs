@@ -59,7 +59,13 @@ namespace DesktopVotingModuleViewModel
         public async Task Vote()
         {
             ballot.SelectedCandidate = SelectedCandidate;
-            await API.Vote(ballot, ballot.SelectedCandidate, user);
+            bool voteStatus = await API.Vote(ballot, ballot.SelectedCandidate, user);
+
+            if (voteStatus)
+                PageSingleton.AfterVoteText = "Dziękujemy za oddanie głosu!";
+            else
+                PageSingleton.AfterVoteText = "Błąd! Ponowne oddanie głosu!";
+
             PageSingleton.PageSource = "Pages/AfterVotePage.xaml";
         }
 

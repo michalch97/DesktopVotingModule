@@ -7,6 +7,7 @@ namespace DesktopVotingModuleViewModel
     public class PageSingleton
     {
         private static string pageSource = "Pages/LoginPage.xaml";
+        private static string afterVoteText = "Pages/LoginPage.xaml";
         public static string PageSource
         {
             get { return pageSource; }
@@ -16,7 +17,15 @@ namespace DesktopVotingModuleViewModel
                 OnStaticPropertyChanged("PageSource");
             }
         }
-        
+        public static string AfterVoteText
+        {
+            get { return afterVoteText; }
+            set
+            {
+                afterVoteText = value;
+            }
+        }
+
         public static PageSingleton Instance { get; }
         static PageSingleton()
         {

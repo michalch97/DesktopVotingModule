@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
@@ -18,8 +19,8 @@ namespace DesktopVotingModuleModel
 {
     public static class API
     {
-        private static readonly string server = "https://85.89.190.151:3010";
-        private static readonly string resultsServer = "https://85.89.190.151:5905";
+        private static readonly string server = "http://85.89.190.151:3010";
+        private static readonly string resultsServer = "http://85.89.190.151:5905";
         private static readonly HttpClient client = new HttpClient();
         public static async Task<bool> LoginAsync(User user)
         {
@@ -36,7 +37,7 @@ namespace DesktopVotingModuleModel
                 {
                     {HttpRequestHeader.ContentType.ToString(),"application/json"}
                 },
-                Content = new StringContent(content)
+                Content = new StringContent(content, Encoding.UTF8, "application/json")
             };
             HttpResponseMessage response = client.SendAsync(httpRequestMessage).Result;
             String responseString = await response.Content.ReadAsStringAsync();
@@ -44,8 +45,6 @@ namespace DesktopVotingModuleModel
             {
                 return false;
             }
-            //String responseString =
-            //    "{\"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTU0NDk3NDQzNywiZXhwIjoxNTQ0OTc2MjM3fQ.tIZhxcjDw5WMFfCL-VHtXNVHejpVpUjjrqhhOOJv3E0\"}";
             Dictionary<string, string> values = JsonConvert.DeserializeObject<Dictionary<string, string>>(responseString);
             user.Token = values["token"];
             return true;
@@ -64,7 +63,6 @@ namespace DesktopVotingModuleModel
             };
             HttpResponseMessage response = client.SendAsync(httpRequestMessage).Result;
             String responseString = await response.Content.ReadAsStringAsync();
-            //String responseString = "[{\"id\": 0, \"name\": \"Super\", \"candidatesSize\": \"2\", \"state\": true}]";
             ObservableCollection<Ballot> ballots = JsonConvert.DeserializeObject<ObservableCollection<Ballot>>(responseString);
 
             return ballots;
@@ -83,12 +81,11 @@ namespace DesktopVotingModuleModel
             };
             HttpResponseMessage response = client.SendAsync(httpRequestMessage).Result;
             String responseString = await response.Content.ReadAsStringAsync();
-            //String responseString = "[{\"name\": \"Jan Kowalski\",\"id\": 0},{\"name\": \"Marian Strzała\",\"id\": 1},{\"name\": \"Kamil Szewczyk\",\"id\": 3},{\"name\": \"Weronika Kasprzyk\",\"id\": 4}]";
             ObservableCollection<Candidate> values = JsonConvert.DeserializeObject<ObservableCollection<Candidate>>(responseString);
             return values;
         }
 
-        public static async Task Vote(Ballot ballot, Candidate candidate, User user)
+        public static async Task<bool> Vote(Ballot ballot, Candidate candidate, User user)
         {
             string content =
                 "{"
@@ -104,10 +101,16 @@ namespace DesktopVotingModuleModel
                     {HttpRequestHeader.ContentType.ToString(),"application/json"},
                     {HttpRequestHeader.Authorization.ToString(),"Bearer " + user.Token}
                 },
-                Content = new StringContent(content)
+                Content = new StringContent(content, Encoding.UTF8, "application/json")
             };
             HttpResponseMessage response = client.SendAsync(httpRequestMessage).Result;
             var responseString = await response.Content.ReadAsStringAsync();
+            if (response.StatusCode != HttpStatusCode.Created)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public static async Task GetResultsImage(Ballot ballot, string pathToSave)
